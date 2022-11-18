@@ -3,11 +3,16 @@
     require_once"config.php";
     $connection = new mysqli($host, $db_user, $db_password, $db_name);
 
+    
     if($connection -> connect_errno == 0) {
-        $userEmail = $_POST['userEmail'];
-        $userPassword = $_POST['userPassword'];
+        $userEmail = htmlentities($_POST['userEmail'], ENT_QUOTES, "UTF-8");
+        $userPassword = htmlentities($_POST['userPassword'], ENT_QUOTES, "UTF-8");
 
-        $sql = "SELECT * FROM users WHERE email='$userEmail' and Hasło = '$userpassword'";
+        $sql = sprintf(
+            "SELECT * FROM users WHERE email='%s' AND Hasło='%s'",
+            mysqli_real_escape_string($connection, $userEmail),
+            mysqli_real_escape_string($connection, $userPassword)
+        );
 
         if($result = $connection -> query($sql)) {
 
