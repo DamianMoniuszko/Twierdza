@@ -11,7 +11,7 @@
         <label>E-mail</label>
         <input type="email" name="userEmail" id="">
         <label>Hasło</label>
-        <input type="text" name="userPassword">
+        <input type="password" name="userPassword" id="">
         <input type="submit" value="OK">
         <?php
         if(isset($_SESSION['signInError'])) {

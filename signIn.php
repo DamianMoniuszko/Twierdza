@@ -1,7 +1,13 @@
 <?php
     session_start();
+    $_SESSION['user'] = $data['Imie'];
+    $_SESSION['userEmail'] = $data['Hasło'];
+    $_SESSION['userPassword'] = $data['Email'];
     require_once"config.php";
-    $connection = new mysqli($host, $db_user, $db_password, $db_name);
+    require_one"MainClass.php"
+    // $connection = new mysqli($host, $db_user, $db_password, $db_name);
+    $mainClass = new MainClass();
+    $connection = $mainClass -> dbConnect();
 
     
     if($connection -> connect_errno == 0) {
@@ -9,7 +15,7 @@
         $userPassword = htmlentities($_POST['userPassword'], ENT_QUOTES, "UTF-8");
 
         $sql = sprintf(
-            "SELECT * FROM users WHERE email='%s' AND Hasło='%s'",
+            "SELECT * FROM users WHERE Email='%s' AND Hasło='%s'",
             mysqli_real_escape_string($connection, $userEmail),
             mysqli_real_escape_string($connection, $userPassword)
         );
@@ -20,18 +26,23 @@
 
                 $data = $result -> fetch_assoc();
                 $user = $data['user'];
-                $email = $data['email'];
-                echo "uzytkownik: $user, email: $email";
+                $email = $data['userEmail'];
+                echo "uzytkownik: $user, email: $userEmail";
                 $_session['signedIn'] = True;
                 unset($_SESSION['signInError']);
                 header('Location: index.php');
 
                 $result -> close();
-            } else {
-                header('Location: index.php');
-                $_session['signInError'] = true;
+            } 
+            else {
+                header('Location: signInPage.php');
                 echo "Uzytkownik nie istnieje";
+                $_session['signInError'] = True;
+
             }
         }
     }
+    unset($_SESSION['userEmail']);
+    unset($_SESSION['userPassword']);
+    session_unset();
     ?>
