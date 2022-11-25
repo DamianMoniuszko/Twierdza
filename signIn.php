@@ -1,13 +1,10 @@
 <?php
     session_start();
-    $_SESSION['user'] = $data['Imie'];
-    $_SESSION['userEmail'] = $data['Hasło'];
-    $_SESSION['userPassword'] = $data['Email'];
     require_once"config.php";
-    require_one"MainClass.php"
-    // $connection = new mysqli($host, $db_user, $db_password, $db_name);
-    $mainClass = new MainClass();
-    $connection = $mainClass -> dbConnect();
+    // require_one"MainClass.php";
+    $connection = new mysqli($host, $db_user, $db_password, $db_name);
+    // $mainClass = new MainClass();
+    // $connection = $mainClass -> dbConnect();
 
     
     if($connection -> connect_errno == 0) {
@@ -22,7 +19,7 @@
 
         if($result = $connection -> query($sql)) {
 
-            if($result -> num_roms > 0) {
+            if($result -> num_rows > 0) {
 
                 $data = $result -> fetch_assoc();
                 $user = $data['user'];
@@ -32,13 +29,16 @@
                 unset($_SESSION['signInError']);
                 header('Location: index.php');
 
+                // $_SESSION['user'] = $data['Imie'];
+                // $_SESSION['userEmail'] = $data['Hasło'];
+                // $_SESSION['userPassword'] = $data['Email'];
+
                 $result -> close();
             } 
             else {
-                header('Location: signInPage.php');
                 echo "Uzytkownik nie istnieje";
                 $_session['signInError'] = True;
-
+                header('Location: signInPage.php');
             }
         }
     }
