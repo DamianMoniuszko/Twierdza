@@ -6,6 +6,7 @@ class MainCLass {
 
     public blockEntrace() {
         if
+            header("location: $move_here")
     }
 }
 ?>

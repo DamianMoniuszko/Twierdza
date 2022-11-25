@@ -1,10 +1,10 @@
 <?php
     session_start();
     require_once"config.php";
-    // require_one"MainClass.php";
-    $connection = new mysqli($host, $db_user, $db_password, $db_name);
-    // $mainClass = new MainClass();
-    // $connection = $mainClass -> dbConnect();
+    require_once"MainClass.php";
+    // $connection = new mysqli($host, $db_user, $db_password, $db_name);
+    $mainClass = new MainClass();
+    $connection = $mainClass -> dbConnect();
 
     
     if($connection -> connect_errno == 0) {
