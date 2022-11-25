@@ -1,6 +1,5 @@
 <?php
     session_start();
-    require_once"config.php";
     require_once"MainClass.php";
     // $connection = new mysqli($host, $db_user, $db_password, $db_name);
     $mainClass = new MainClass();
@@ -25,7 +24,7 @@
                 $user = $data['user'];
                 $email = $data['userEmail'];
                 echo "uzytkownik: $user, email: $userEmail";
-                $_session['signedIn'] = True;
+                $_SESSION['signedIn'] = True;
                 unset($_SESSION['signInError']);
                 header('Location: index.php');
 
