@@ -21,10 +21,11 @@
             if($result -> num_rows > 0) {
 
                 $data = $result -> fetch_assoc();
-                $user = $data['user'];
-                $email = $data['userEmail'];
+                $user = $data['Imie'];
+                $email = $data['Email'];
                 echo "uzytkownik: $user, email: $userEmail";
-                $_SESSION['signedIn'] = True;
+                $_SESSION['signedIn'] = true;
+                $_SESSION['email'] = $email;
                 unset($_SESSION['signInError']);
                 header('Location: index.php');
 
@@ -36,7 +37,7 @@
             } 
             else {
                 echo "Uzytkownik nie istnieje";
-                $_session['signInError'] = True;
+                $_session['signInError'] = true;
                 header('Location: signInPage.php');
             }
         }
