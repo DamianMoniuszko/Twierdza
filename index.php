@@ -4,33 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css" />
     <title>Twierdza</title>
-    <style>
-        <?php include("main.scss"); ?>
-    </style>
 </head>
 <body>
     
     <header>
         <div class="header__container">
-            <?php define("LOGO", "LOGO")?>
+            <?php define("SG", "Strona Główna")?>
             <h1>
-                <?php echo LOGO ?>
+                <?php echo SG ?>
             </h1>
             <nav>
                 <ul>
-                    <li> Home</li>
-                    <li> About Us </li>
-                    <li> Contact  </li>
+                    <li><a href="signInPage.php">Zaloguj się</a></li>
+                    <li><a href="signUpPage.php">Zarejestruj się</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 <section>
-    <?php
-    $title = "INDEX!"
-    ?>
-    <h1><?php echo "$title"?></h1>
+    <h2>Twierdza</h2>
     <p>t</p>
     <p>t</p>
     <p>t</p>
