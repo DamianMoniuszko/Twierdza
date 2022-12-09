@@ -15,10 +15,11 @@
         <label>E-mail</label>
         <input type="email" name="userEmail" id="">
         <label>Hasło</label>
-        <input type="text" name="userPassword">
+        <input type="password" name="userPassword">
         <label>Powtórz hasło</label>
-        <input type="text" name="userPassword">
+        <input type="password" name="userPassword">
         <input type="submit" value="OK">
+        <a href="index.php">Wróć do strony głównej</a>
     </form>
 <?php
     if (isset($_GET['userName'])) {
