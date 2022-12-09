@@ -42,4 +42,7 @@
             }
         }
     }
+    unset($_SESSION['userEmail']);
+    unset($_SESSION['userPassword']);
+    session_unset();
     ?>
