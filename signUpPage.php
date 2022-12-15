@@ -9,7 +9,7 @@
 </head>
 <h1>Zarejestruj się</h1>
 <body id="body">
-    <form action="signUpPage.php" method="get">
+    <form action="signUp.php" method="post">
         <label>Nazwa</label>
         <input type="text" name="name" id="">
         <label>E-mail</label>
@@ -17,23 +17,9 @@
         <label>Hasło</label>
         <input type="password" name="userPassword">
         <label>Powtórz hasło</label>
-        <input type="password" name="userPassword">
+        <input type="password" name="userPasswordRepeat">
         <input type="submit" value="OK">
         <a href="index.php">Wróć do strony głównej</a>
     </form>
-<?php
-    if (isset($_GET['userName'])) {
-        $userName = $_GET['userName'];
-        echo "<p>Nazwa uzytkownika : $userName </p>";
-    } else {
-        echo "<p>Nie podałeś nazwy użytkownika</p>";
-    }
-    if (isset($_GET['userEmail'])) {
-        $userEmail = $_GET['userEmail'];
-        echo "<p>Adres e-mail użytkownika: $userEmail </p>";
-    } else {
-        echo "<p>Nie podałeś adresu e-mail</p>";
-    }
-?>
 </body>
 </html>

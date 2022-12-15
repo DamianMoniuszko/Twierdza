@@ -1,36 +1,44 @@
 <?php
     session_start();
     require_once"MainClass.php";
-    // $connection = new mysqli($host, $db_user, $db_password, $db_name);
     $mainClass = new MainClass();
     $connection = $mainClass -> dbConnect();
     
-    function filtruj($zmienna)
-    {
-        if(get_magic_quotes_gpc())
-            $zmienna = stripslashes($zmienna);
-    }
-    
-    if (isset($_POST['rejestruj']))
-    {
-        $login = filtruj($_POST['login']);
-        $haslo1 = filtruj($_POST['haslo1']);
-        $haslo2 = filtruj($_POST['haslo2']);
-        $email = filtruj($_POST['email']);
-        $ip = filtruj($_SERVER['REMOTE_ADDR']);
+    if($connection -> connect_errno == 0) {
+        $name = htmlentities($_POST['name'], ENT_QUOTES, "UTF-8");
+        $email = htmlentities($_POST['userEmail'], ENT_QUOTES, "UTF-8");
+        $password = htmlentities($_POST['userPassword'], ENT_QUOTES, "UTF-8");
+        $passwordRepeat = htmlentities($_POST['userPasswordRepeat'], ENT_QUOTES, "UTF-8");
         
-        // sprawdzamy czy login nie jest już w bazie
-        if (mysql_num_rows(mysql_query("SELECT login FROM users WHERE login = '".$login."';")) == 0)
-        {
-            if ($haslo1 == $haslo2) // sprawdzamy czy hasła takie same
-            {
-                mysql_query("INSERT INTO `uzytkownicy` (`login`, `haslo`, `email`, `rejestracja`, `logowanie`, `ip`)
-                    VALUES ('".$login."', '".md5($haslo1)."', '".$email."', '".time()."', '".time()."', '".$ip."');");
-                
-                echo "Konto zostało utworzone!";
+
+        $sql = sprintf(
+            "SELECT * FROM users WHERE  Imie = '%s' AND Email='%s' AND Hasło='%s'",
+            mysqli_real_escape_string($connection, $name),
+            mysqli_real_escape_string($connection, $email),
+            mysqli_real_escape_string($connection, $password)
+        );
+
+        if($result = $connection -> query($sql)) {
+
+            if($result -> num_rows > 0) {
+                echo "użytkownik już istnieje";
             }
-            else echo "Hasła nie są takie same";
+            else {
+                if($password == $passwordRepeat) {
+                    if(strlen($password) >= 8) {
+                        $sql = "INSERT INTO users(id, Imie, Hasło, Email) VALUES ('','$name','$password','$email')"; 
+                        $result = $connection -> query($sql);
+                        echo "zarejestrowano";
+                        header('Location: index.php');
+                    }
+                    else{
+                        echo "Hasło musi zawierać długość 8 znaków";
+                    }
+                }
+                else{
+                    echo "hasła nie są identyczne";
+                }
+            }
         }
-        else echo "Podany login jest już zajęty.";
     }
 ?>
