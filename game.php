@@ -18,7 +18,9 @@
     
     if (($_SESSION['signedIn']) == 1 ){
     ?>
-    <form><input type="submit" value="Log out" name="logout"></form>
+    <form action="logout.php">
+        <input type="submit" value="Log out" name="logout">
+    </form>
     <?php
     }
     if(isset($_POST['logout'])){

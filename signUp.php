@@ -28,6 +28,10 @@
                     if(strlen($password) >= 8) {
                         $sql = "INSERT INTO users(id, Name, Password, Email) VALUES ('','$name','$password','$email')"; 
                         $result = $connection -> query($sql);
+                        $_SESSION['id'] = $data['id'];
+                        $_SESSION['user'] = $data['name'];
+                        $_SESSION['signedIn'] = true;
+                        $_SESSION['email'] = $email;
                         echo "zarejestrowano";
                         header('Location: game.php');
                     }

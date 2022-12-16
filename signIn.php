@@ -21,10 +21,10 @@
             if($result -> num_rows > 0) {
 
                 $data = $result -> fetch_assoc();
-                $_SESSION['user'] = $data['name'];
                 $email = $data['Email'];
                 echo "uzytkownik: $user, email: $userEmail";
                 $_SESSION['id'] = $data['id'];
+                $_SESSION['user'] = $data['name'];
                 $_SESSION['signedIn'] = true;
                 $_SESSION['email'] = $email;
                 unset($_SESSION['signInError']);
