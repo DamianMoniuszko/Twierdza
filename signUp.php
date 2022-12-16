@@ -12,7 +12,7 @@
         
 
         $sql = sprintf(
-            "SELECT * FROM users WHERE  Imie = '%s' AND Email='%s' AND Hasło='%s'",
+            "SELECT * FROM users WHERE  Name = '%s' AND Email='%s' AND Password='%s'",
             mysqli_real_escape_string($connection, $name),
             mysqli_real_escape_string($connection, $email),
             mysqli_real_escape_string($connection, $password)
@@ -26,13 +26,14 @@
             else {
                 if($password == $passwordRepeat) {
                     if(strlen($password) >= 8) {
-                        $sql = "INSERT INTO users(id, Imie, Hasło, Email) VALUES ('','$name','$password','$email')"; 
+                        $sql = "INSERT INTO users(id, Name, Password, Email) VALUES ('','$name','$password','$email')"; 
                         $result = $connection -> query($sql);
                         echo "zarejestrowano";
-                        header('Location: index.php');
+                        header('Location: game.php');
                     }
                     else{
-                        echo "Hasło musi zawierać długość 8 znaków";
+                        $_SESSION['signUpCountError'] ='<span style="color:red">Hasło musi zawierać min. 8 znaków!</span>';
+                header('Location: SignUpPage.php');;
                     }
                 }
                 else{

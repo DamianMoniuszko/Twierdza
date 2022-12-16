@@ -1,42 +1,30 @@
 header {
   border-bottom: 0.063rem solid black;
 }
-
 header .header__container {
   max-width: 90rem;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
-
 header .header__container ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-
 header .header__container ul li {
   margin-left: 1rem;
   cursor: pointer;
   padding-bottom: 1rem;
 }
-
 header .header__container ul li:hover {
   border-bottom: 0.063rem solid black;
 }
 
 body {
-  background-color: whitesmoke;
+  background-color: bisque;
 }
 
 form {
@@ -45,5 +33,4 @@ form {
 
 .body {
   background-color: green;
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

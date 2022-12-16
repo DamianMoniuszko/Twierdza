@@ -1,3 +1,14 @@
+<?php
+
+    session_start();
+
+    if((isset($_SESSION['signedIn'])) && ($_SESSION['signedIn']==true))
+	{
+		header('Location: game.php');
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -5,9 +16,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css" />
-    <title>Sign Up</title>
+    <title>Twierdza</title>
 </head>
-<h1>Zarejestruj się</h1>
+<h1>Rejestracja</h1>
 <body id="body">
     <form action="signUp.php" method="post">
         <label>Nazwa</label>
@@ -18,8 +29,9 @@
         <input type="password" name="userPassword">
         <label>Powtórz hasło</label>
         <input type="password" name="userPasswordRepeat">
-        <input type="submit" value="OK">
-        <a href="index.php">Wróć do strony głównej</a>
+        <button type="submit">Zarejestruj się</button>
+        <a href="signInPage.php">Masz konto?</a>
+        <a href="index.php">Strona główna</a>
     </form>
 </body>
 </html>
