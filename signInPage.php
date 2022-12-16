@@ -4,7 +4,7 @@
 
 	if((isset($_SESSION['signedIn'])) && ($_SESSION['signedIn']==true))
 	{
-		header('Location: game.php');
+		header('Location: index2.php');
 	}
 
 ?>

@@ -16,20 +16,19 @@
     
     <header>
         <div class="header__container">
-            <?php define("SG", "Strona Główna")?>
             <h1>
-                <?php echo SG ?>
+                Twierdza
             </h1>
             <nav>
                 <ul>
-                    <li><a href="signInPage.php">Zaloguj się</a></li>
-                    <li><a href="signUpPage.php">Zarejestruj się</a></li>
+                    <li><a href="game.php">Gra</a></li>
+                    <li><a href="logout.php" type="submit" value="Log out" name="logout">Wyloguj się</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 <section>
-    <h2>Twierdza</h2>
+    <h2><?php echo "Witaj ".$_SESSION['user']; ?></h2>
     <p>t</p>
     <p>t</p>
     <p>t</p>

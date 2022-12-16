@@ -28,7 +28,7 @@
                 $_SESSION['signedIn'] = true;
                 $_SESSION['email'] = $email;
                 unset($_SESSION['signInError']);
-                header('Location: game.php');
+                header('Location: index2.php');
                 // $result -> close();
             } 
             else {
