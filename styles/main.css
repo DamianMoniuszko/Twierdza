@@ -24,14 +24,14 @@ header .header__container ul li:hover {
 }
 
 body {
-  background-color: bisque;
+  background-color: whitesmoke;
 }
 
 form {
   border: 0.063rem solid black;
 }
 
-/* .body {
+.body {
   background-color: green;
- } */
+}
 /*# sourceMappingURL=main.css.map */

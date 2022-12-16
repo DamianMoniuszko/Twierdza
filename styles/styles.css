@@ -1,5 +1,5 @@
 body {
-    background: brown;
+    background: blue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +39,7 @@ label {
 }
 
 button {
-    justify-content: space-between;
+    justify-content: right;
     background: #555;
     padding: 10px 15px;
     color: #fff;
