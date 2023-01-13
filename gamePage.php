@@ -32,6 +32,9 @@
             <nav>
                 <ul>
                     <li>
+                        <a href="profilePage.php">Profil</a>
+                    </li>
+                    <li>
                         <a href="index2.php">Strona Główna</a>
                     </li>
                     <li>
@@ -41,5 +44,11 @@
             </nav>
         </div>
     </header>
+        <?php echo "<b>Drewno </b>".$_SESSION['drewno']; ?>
+        <button type="submit">Zbierz</button>
+        <?php echo "<p><b>Kamień </b>".$_SESSION['kamien']; ?>
+        <button type="submit">Zbierz</button>
+        <?php echo "<p><b>Złoto </b>".$_SESSION['zloto']; ?>
+        <button type="submit">Zbierz</button>
 </body>
 </html>

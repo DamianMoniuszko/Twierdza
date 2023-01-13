@@ -39,7 +39,7 @@ label {
 }
 
 button {
-    justify-content: right;
+    justify-content: space-between;
     background: #555;
     padding: 10px 15px;
     color: #fff;

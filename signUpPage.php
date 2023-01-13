@@ -32,6 +32,9 @@
         <button type="submit">Zarejestruj się</button>
         <a href="signInPage.php">Masz konto?</a>
         <a href="index.php">Strona główna</a>
+        <?php
+		    if(isset($_SESSION['signUpError'])) echo $_SESSION['signUpError'];
+		?>
     </form>
 </body>
 </html>

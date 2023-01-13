@@ -37,11 +37,12 @@
                     }
                     else{
                         $_SESSION['signUpCountError'] ='<span style="color:red">Hasło musi zawierać min. 8 znaków!</span>';
-                header('Location: SignUpPage.php');;
+                        header('Location: SignUpPage.php');
                     }
                 }
                 else{
-                    echo "hasła nie są identyczne";
+                    $_SESSION['signUpError'] ='<span style="color:red">Hasła nie są identyczne!</span>';
+                    header('Location: SignUpPage.php');
                 }
             }
         }

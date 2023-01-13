@@ -17,7 +17,7 @@
     <header>
         <div class="header__container">
             <h1>
-                Twierdza
+                Profil Gracza
             </h1>
             <nav>
                 <ul>

@@ -27,6 +27,10 @@
                 $_SESSION['user'] = $data['name'];
                 $_SESSION['signedIn'] = true;
                 $_SESSION['email'] = $email;
+                $_SESSION['drewno'] = $data['drewno'];
+                $_SESSION['kamien'] = $data['kamien'];
+                $_SESSION['zloto'] = $data['zloto'];
+
                 unset($_SESSION['signInError']);
                 header('Location: index2.php');
                 // $result -> close();
